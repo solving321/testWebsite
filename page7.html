@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WCAG AA Color Contrast Compliance Examples</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      h2 {
+        margin-top: 40px;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 5px;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .example {
+        flex: 1 1 45%;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: relative;
+        color: white;
+      }
+
+      .fail-aa-normal {
+        background-color: #cccccc; /* Light Gray */
+        color: #f3f3f3; /* Very Light Gray */
+        padding: 15px;
+      }
+
+      .pass-aa-normal {
+        background-color: #ffffff; /* White */
+        color: #000000; /* Black */
+        padding: 15px;
+      }
+
+      .fail-aa-large {
+        background-color: #ffea00; /* Yellow */
+        color: #ffeb3b; /* Light Yellow */
+        padding: 15px;
+        font-size: 1.5em; /* Large Text */
+      }
+
+      .pass-aa-large {
+        background-color: #282828; /* Dark Gray */
+        color: #ffea00; /* Yellow */
+        padding: 15px;
+        font-size: 1.5em; /* Large Text */
+      }
+
+      .note {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 10px;
+      }
+
+      .gradient-text-fail {
+        font-size: 2em;
+        background: linear-gradient(
+          45deg,
+          #f3ec78,
+          #fbb402
+        ); /* Low contrast gradient */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; /* Makes the text color the gradient */
+      }
+
+      .gradient-text-pass {
+        font-size: 2em;
+        background: linear-gradient(
+          45deg,
+          #ff7700,
+          #f44336
+        ); /* High contrast gradient */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; /* Makes the text color the gradient */
+      }
+
+      .readable-text {
+        background-image: url('https://via.placeholder.com/600x400/000000/FFFFFF/?text='); /* Dark background image */
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+        font-size: 14px;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .hard-to-read-text {
+        background-image: url('https://via.placeholder.com/600x400/FFFFFF/000000/?text='); /* Light background image */
+        background-size: cover;
+        background-position: center;
+        color: #cccccc;
+        font-size: 14px;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .gradient-pass-bg {
+        background: linear-gradient(
+          45deg,
+          #283593,
+          #1976d2
+        ); /* Dark Blue to Blue gradient */
+        color: #ffffff;
+        padding: 40px 20px;
+        font-size: 20px;
+        text-align: center;
+      }
+
+      .gradient-fail-bg {
+        background: linear-gradient(
+          45deg,
+          #ffeb3b,
+          #f3f3f3
+        ); /* Bright Yellow to Light Gray gradient */
+        color: #ffeb3b;
+        padding: 40px 20px;
+        font-size: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>WCAG AA Color Contrast Compliance Examples</h1>
+    <p>
+      This webpage demonstrates WCAG AA compliance with various color contrast
+      scenarios, including background images and gradients, for normal and large
+      text.
+    </p>
+
+    <h2>Normal Text Examples</h2>
+    <div class="container">
+      <!-- Fail WCAG AA for Normal Text -->
+      <div class="example fail-aa-normal">
+        <strong>Fail AA:</strong> Low contrast between text and background.
+        <p class="note">(Background: #cccccc, Text: #f3f3f3)</p>
+      </div>
+
+      <!-- Pass WCAG AA for Normal Text -->
+      <div class="example pass-aa-normal">
+        <strong>Pass AA:</strong> Sufficient contrast for normal text.
+        <p class="note">(Background: #ffffff, Text: #000000)</p>
+      </div>
+    </div>
+
+    <h2>Large Text Examples</h2>
+    <div class="container">
+      <!-- Fail WCAG AA for Large Text -->
+      <div class="example fail-aa-large">
+        <strong>Fail AA (Large Text):</strong> Low contrast for large text.
+        <p class="note">(Background: #ffea00, Text: #ffeb3b)</p>
+      </div>
+
+      <!-- Pass WCAG AA for Large Text -->
+      <div class="example pass-aa-large">
+        <strong>Pass AA (Large Text):</strong> Sufficient contrast for large
+        text.
+        <p class="note">(Background: #282828, Text: #ffea00)</p>
+      </div>
+    </div>
+
+    <h2>Background Image and Gradient Examples</h2>
+    <div class="container">
+      <div class="example gradient-fail">
+        <p class="gradient-text-fail">Hard to Read Gradient Text</p>
+      </div>
+
+      <div class="readable-text example">
+        Readable Text on Dark Background Image
+      </div>
+
+      <div class="hard-to-read-text example">
+        Hard to Read Text on Light Background Image
+      </div>
+
+      <div class="gradient-fail-bg example">
+        Hard to Read Text on Gradient Background
+      </div>
+    </div>
+  </body>
+</html>
